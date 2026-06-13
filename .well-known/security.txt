@@ -1,0 +1,4 @@
+Contact: mailto:contato@example.com
+Preferred-Languages: pt-BR
+Policy: /privacy.html
+
