@@ -22,8 +22,9 @@ Se a prioridade for segurança máxima com cabeçalhos HTTP reais, hospede no Cl
 ## Checklist Antes De Publicar
 
 - Link oficial do grupo aplicado: `https://chat.whatsapp.com/GmVTplmLx88FddVR1oLpQT`.
+- Marca pública aplicada: `Achados Tech Tz`.
 - Trocar `contato@example.com` por um e-mail real.
-- Quando a URL pública existir, adicionar `canonical`, `og:url` e URLs absolutas para `og:image` e `twitter:image`.
+- Manter `canonical`, `og:url` e URLs absolutas para `og:image` e `twitter:image`.
 - Não colocar tokens, credenciais, planilhas privadas ou dados de membros no repositório.
 - Não adicionar scripts de rastreamento antes de revisar LGPD, consentimento e política de cookies.
 - Manter o grupo WhatsApp com entrada voluntária e descrição clara sobre links afiliados.

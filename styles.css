@@ -1,13 +1,18 @@
 :root {
-  --bg: #050806;
-  --ink: #f5fff8;
-  --muted: #b7c8bd;
-  --soft: #e7fff0;
-  --line: rgba(120, 255, 174, 0.24);
-  --panel: rgba(7, 18, 11, 0.86);
-  --green: #25d366;
-  --green-bright: #3cff86;
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.52);
+  --bg: #030304;
+  --panel: rgba(8, 10, 14, 0.88);
+  --panel-strong: rgba(10, 13, 18, 0.96);
+  --ink: #fbfbff;
+  --soft: #edf7ff;
+  --muted: #aeb8c3;
+  --line: rgba(255, 255, 255, 0.16);
+  --whatsapp: #25d366;
+  --whatsapp-strong: #37f082;
+  --cyan: #00e7ff;
+  --magenta: #ff28d6;
+  --amber: #ffb000;
+  --orange: #ff5b1f;
+  --shadow: 0 28px 90px rgba(0, 0, 0, 0.68);
 }
 
 * {
@@ -25,8 +30,8 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    linear-gradient(rgba(5, 8, 6, 0.7), rgba(5, 8, 6, 0.96)),
-    url("assets/hero-whatsapp-deals.png") center / cover fixed no-repeat,
+    linear-gradient(rgba(3, 3, 4, 0.72), rgba(3, 3, 4, 0.96)),
+    url("assets/achados-tech-tz-hero.png") center / cover fixed no-repeat,
     var(--bg);
   color: var(--ink);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,14 +42,31 @@ body::before {
   position: fixed;
   inset: -44px;
   z-index: -1;
-  background: url("assets/group-avatar.jpg") center / cover no-repeat;
+  background: url("assets/achados-tech-tz-hero.png") center / cover no-repeat;
   content: "";
-  filter: blur(42px) brightness(0.24) saturate(1.25);
+  filter: blur(44px) brightness(0.28) saturate(1.45);
   transform: scale(1.1);
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+  content: "";
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 72%);
 }
 
 a {
   color: inherit;
+}
+
+h1,
+p {
+  overflow-wrap: anywhere;
 }
 
 .entry-page {
@@ -60,26 +82,96 @@ a {
 }
 
 .entry-card {
-  width: min(760px, 100%);
-  padding: clamp(20px, 3.4vw, 34px);
+  position: relative;
+  width: min(780px, 100%);
+  padding: clamp(22px, 3.5vw, 38px);
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(7, 18, 11, 0.92), rgba(4, 10, 6, 0.9));
-  box-shadow: var(--shadow);
+  background:
+    linear-gradient(180deg, rgba(12, 15, 20, 0.92), rgba(5, 6, 9, 0.92)),
+    var(--panel);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(37, 211, 102, 0.14);
   text-align: center;
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.entry-card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cyan), var(--whatsapp), var(--amber), var(--magenta), var(--orange));
+  content: "";
+}
+
+.entry-card::after {
+  position: absolute;
+  top: 86px;
+  right: clamp(16px, 5vw, 48px);
+  color: rgba(255, 255, 255, 0.1);
+  content: "% OFF";
+  font-size: clamp(34px, 8vw, 74px);
+  font-weight: 950;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.brand-strip {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--soft);
+  font-size: 13px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.brand-strip img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .entry-avatar {
+  position: relative;
+  z-index: 1;
   display: grid;
-  width: 96px;
-  height: 96px;
+  width: 112px;
+  height: 112px;
   margin: 0 auto 14px;
   place-items: center;
-  border: 3px solid var(--green);
+  border: 3px solid var(--whatsapp);
   border-radius: 50%;
-  box-shadow: 0 0 38px rgba(37, 211, 102, 0.3);
+  box-shadow:
+    0 0 30px rgba(37, 211, 102, 0.38),
+    0 0 54px rgba(0, 231, 255, 0.18);
   overflow: hidden;
+}
+
+.entry-avatar::after {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 2px solid #050607;
+  border-radius: 50%;
+  background: var(--amber);
+  color: #111;
+  content: "%";
+  font-size: 19px;
+  font-weight: 950;
 }
 
 .entry-avatar img {
@@ -89,20 +181,19 @@ a {
 }
 
 .eyebrow {
+  position: relative;
+  z-index: 1;
   margin: 0 0 10px;
-  color: var(--green-bright);
+  color: var(--whatsapp-strong);
   font-size: 13px;
   font-weight: 950;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
-h1,
-p {
-  overflow-wrap: anywhere;
-}
-
 h1 {
+  position: relative;
+  z-index: 1;
   margin: 0;
   color: var(--ink);
   font-size: clamp(38px, 7vw, 70px);
@@ -111,24 +202,30 @@ h1 {
 }
 
 .lead {
-  max-width: 620px;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
   margin: 14px auto 0;
   color: var(--soft);
   font-size: clamp(19px, 3vw, 25px);
 }
 
 .value-note {
-  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  max-width: 610px;
   margin: 10px auto 0;
-  color: var(--green-bright);
+  color: #fff4c7;
   font-size: clamp(15px, 2vw, 17px);
   font-weight: 850;
 }
 
 .entry-bullets {
+  position: relative;
+  z-index: 1;
   display: grid;
-  gap: 7px;
-  max-width: 620px;
+  gap: 8px;
+  max-width: 640px;
   margin: 20px auto 0;
   padding: 0;
   color: var(--soft);
@@ -139,15 +236,24 @@ h1 {
 }
 
 .entry-bullets li {
-  padding: 10px 14px;
-  border: 1px solid rgba(120, 255, 174, 0.17);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  background: rgba(37, 211, 102, 0.08);
+  background: linear-gradient(90deg, rgba(37, 211, 102, 0.12), rgba(0, 231, 255, 0.06), rgba(255, 40, 214, 0.05));
+}
+
+.entry-bullets span {
+  flex: 0 0 auto;
+  color: var(--whatsapp-strong);
+  font-weight: 950;
 }
 
 .button {
   display: inline-flex;
-  min-height: 58px;
+  min-height: 60px;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
@@ -158,30 +264,57 @@ h1 {
 }
 
 .button.primary {
-  background: var(--green);
-  box-shadow: 0 16px 44px rgba(37, 211, 102, 0.3);
+  background: linear-gradient(90deg, var(--whatsapp), var(--whatsapp-strong));
+  box-shadow: 0 18px 46px rgba(37, 211, 102, 0.32), 0 0 28px rgba(0, 231, 255, 0.18);
 }
 
 .button.primary:hover {
-  background: var(--green-bright);
+  filter: brightness(1.08);
 }
 
 .entry-button {
-  width: min(100%, 620px);
+  position: relative;
+  z-index: 1;
+  width: min(100%, 640px);
   margin-top: 20px;
   font-size: 18px;
 }
 
-.safety-note {
-  max-width: 620px;
+.trust-row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 640px;
   margin: 14px auto 0;
-  color: #ffe8a3;
+}
+
+.trust-row span {
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.safety-note {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 14px auto 0;
+  color: #ffe39a;
   font-size: 14px;
   font-weight: 900;
 }
 
 .consent-note {
-  max-width: 620px;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
   margin: 8px auto 0;
   color: var(--muted);
   font-size: 13px;
@@ -194,7 +327,7 @@ h1 {
   gap: 18px;
   padding: 18px clamp(18px, 5vw, 56px);
   border-top: 1px solid var(--line);
-  background: rgba(4, 8, 5, 0.92);
+  background: rgba(4, 5, 7, 0.94);
   color: var(--muted);
   font-size: 13px;
 }
@@ -209,15 +342,15 @@ h1 {
 }
 
 .entry-footer a {
-  color: var(--green-bright);
+  color: var(--whatsapp-strong);
   font-weight: 850;
 }
 
 .entry-footer img {
-  width: 52px;
+  width: 56px;
   height: auto;
   object-fit: contain;
-  opacity: 0.92;
+  opacity: 0.95;
 }
 
 .small-button {
@@ -225,7 +358,7 @@ h1 {
   padding: 0 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(9, 21, 13, 0.8);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--soft);
   font-size: 14px;
   font-weight: 900;
@@ -239,7 +372,7 @@ h1 {
   gap: 16px;
   padding: 14px clamp(18px, 4vw, 56px);
   border-bottom: 1px solid var(--line);
-  background: rgba(5, 8, 6, 0.86);
+  background: rgba(5, 6, 8, 0.88);
 }
 
 .brand {
@@ -256,10 +389,10 @@ h1 {
   width: 40px;
   height: 40px;
   place-items: center;
-  border: 1px solid rgba(60, 255, 134, 0.42);
+  border: 1px solid rgba(37, 211, 102, 0.46);
   border-radius: 8px;
-  background: rgba(37, 211, 102, 0.15);
-  color: var(--green-bright);
+  background: rgba(37, 211, 102, 0.14);
+  color: var(--whatsapp-strong);
 }
 
 .brand-mark svg {
@@ -317,18 +450,28 @@ h1 {
 
   .entry-card {
     width: 100%;
-    max-width: 346px;
+    max-width: 350px;
     padding: 24px 18px;
     overflow: hidden;
   }
 
+  .entry-card::after {
+    top: 74px;
+    right: 16px;
+    font-size: 34px;
+  }
+
+  .brand-strip {
+    font-size: 12px;
+  }
+
   .entry-avatar {
-    width: 112px;
-    height: 112px;
+    width: 108px;
+    height: 108px;
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .lead,
