@@ -1,4 +1,3 @@
-Contact: mailto:contato@example.com
+Contact: https://www.instagram.com/achadostechtz/
 Preferred-Languages: pt-BR
 Policy: /privacy.html
-
