@@ -1,4 +1,5 @@
 screenshot-*.png
+.edge-profile-*/
 *.log
 .DS_Store
 Thumbs.db
